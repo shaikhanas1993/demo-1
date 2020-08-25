@@ -72,11 +72,11 @@ spec:
                     configMapKeyRef:
                       name: {{ $fullName }}
                       key: mercure-subscribe-url
-                - name: MERCURE_JWT_SECRET
+                - name: MERCURE_JWT_TOKEN
                   valueFrom:
                     secretKeyRef:
                       name: {{ $fullName }}
-                      key: mercure-jwt-secret
+                      key: mercure-jwt-token
                 - name: JWT_SECRET_KEY
                   valueFrom:
                     secretKeyRef:
@@ -93,17 +93,11 @@ spec:
                       name: {{ $fullName }}
                       key: jwt-passphrase
                 - name: API_ENTRYPOINT_SCHEME
-                  valueFrom:
-                    configMapKeyRef:
-                      name: {{ $fullName }}
-                      key: api-entrypoint-scheme
+                  value: "https"
                 - name: API_ENTRYPOINT_HOST
                   valueFrom:
                     configMapKeyRef:
                       name: {{ $fullName }}
                       key: api-entrypoint-host
                 - name: API_ENTRYPOINT_PORT
-                  valueFrom:
-                    configMapKeyRef:
-                      name: {{ $fullName }}
-                      key: api-entrypoint-port
+                  value: "443"
